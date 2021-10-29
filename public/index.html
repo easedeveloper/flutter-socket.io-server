@@ -25,9 +25,20 @@
         //vamos a emitir un evento
         socket.emit('emitMensaje',{ nombre: 'Andrei' });
 
+        // //vamos a escuchar desde el servidor
+        // socket.on('ioMensaje', function( payload ){
+        //     console.log('ESCUCHANDO DESDE EL SERVIDOR: ', payload);
+        // });
+
         //vamos a escuchar desde el servidor
-        socket.on('ioMensaje', function( payload ){
+        socket.on('nuevo-mensaje', function( payload ){
             console.log('ESCUCHANDO DESDE EL SERVIDOR: ', payload);
+        });
+
+        //vamos a traer/mostrar todas las bandas
+        socket.on('Bandas-Activas', function( bandas ){
+            console.clear();
+            console.table( bandas );
         });
 
 
